@@ -76,6 +76,30 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="f_bedrooms">Bedrooms:</label>
+                    <select class="form-control" id="f_bedrooms" name="f_bedrooms">
+                        <option value=""></option>
+                        <option value="One" <?php echo ($f_bedrooms == 'One') ? 'selected' : '' ?>>One</option>
+                        <option value="Two" <?php echo ($f_bedrooms == 'Two') ? 'selected' : '' ?>>Two</option>
+                        <option value="Three" <?php echo ($f_bedrooms == 'Three') ? 'selected' : '' ?>>Three</option>
+                        <option value="Four" <?php echo ($f_bedrooms == 'Four') ? 'selected' : '' ?>>Four</option>
+                        <option value="Five" <?php echo ($f_bedrooms == 'Five') ? 'selected' : '' ?>>Five</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="f_bathrooms">Bathrooms:</label>
+                    <select class="form-control" id="f_bathrooms" name="f_bathrooms">
+                        <option value=""></option>
+                        <option value="One" <?php echo ($f_bathrooms == 'One') ? 'selected' : '' ?>>One</option>
+                        <option value="Two" <?php echo ($f_bathrooms == 'Two') ? 'selected' : '' ?>>Two</option>
+                        <option value="Three" <?php echo ($f_bathrooms == 'Three') ? 'selected' : '' ?>>Three</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="f_area">Area:</label>
+                    <input type="text" class="form-control" id="f_area" name="f_area" value="<?php echo $f_area; ?>">
+                </div>
+                <div class="form-group">
                     <label for="f_over">Over:</label>
                     <input type="text" class="form-control width-fix-70" id="f_over" name="f_over" value="<?php echo $f_over; ?>">
                 </div>
@@ -201,6 +225,40 @@
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="bedrooms"> Bedrooms</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="bedrooms">
+                                            <option value=""></option>
+                                            <option value="One">One</option>
+                                            <option value="Two">Two</option>
+                                            <option value="Three">Three</option>
+                                            <option value="Four">Four</option>
+                                            <option value="Four">Five</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="bathrooms"> Bathrooms</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="bathrooms">
+                                            <option value=""></option>
+                                            <option value="One">One</option>
+                                            <option value="Two">Two</option>
+                                            <option value="Three">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="area"> Area</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="area">
                                     </div>
                                 </div>
                             </div>

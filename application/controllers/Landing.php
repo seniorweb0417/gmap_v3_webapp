@@ -31,6 +31,9 @@ class Landing extends CI_Controller {
         $f_apt = $this->input->get('f_apt');
         $f_floor = $this->input->get('f_floor');
         $f_elevator = $this->input->get('f_elevator');
+        $f_bedrooms = $this->input->get('f_bedrooms');
+        $f_bathrooms = $this->input->get('f_bathrooms');
+        $f_area = $this->input->get('f_area');
         $f_over = $this->input->get('f_over');
         $f_paid_amount = $this->input->get('f_paid_amount');
         $f_remaining_balance = $this->input->get('f_remaining_balance');
@@ -48,6 +51,9 @@ class Landing extends CI_Controller {
             'f_apt' => $f_apt,
             'f_floor' => $f_floor,
             'f_elevator' => $f_elevator,
+            'f_bedrooms' => $f_bedrooms,
+            'f_bathrooms' => $f_bathrooms,
+            'f_area' => $f_area,
             'f_over' => $f_over,
             'f_paid_amount' => $f_paid_amount,
             'f_remaining_balance' => $f_remaining_balance,
@@ -70,6 +76,9 @@ class Landing extends CI_Controller {
         $apt = $this->input->post('apt');
         $floor = $this->input->post('floor');
         $elevator = $this->input->post('elevator');
+        $bedrooms = $this->input->post('bedrooms');
+        $bathrooms = $this->input->post('bathrooms');
+        $area = $this->input->post('area');
         $over = $this->input->post('over');
         $paid_amount = $this->input->post('paid_amount');
         $remaining_balance = $this->input->post('remaining_balance');
@@ -79,7 +88,7 @@ class Landing extends CI_Controller {
         $notes = $this->input->post('notes');
 
         echo $this->Marker_model->saveMarker($username, $type, $lat, $lng, $phase, $subphase, $building, $apt, $floor, 
-        $elevator, $over, $paid_amount, $remaining_balance, $remaining_years, $total_price, $quarter_payment, $notes);
+        $elevator, $bedrooms, $bathrooms, $area, $over, $paid_amount, $remaining_balance, $remaining_years, $total_price, $quarter_payment, $notes);
     }
 
     public function loadMarker() {
@@ -91,6 +100,9 @@ class Landing extends CI_Controller {
         $apt = $this->input->post('apt');
         $floor = $this->input->post('floor');
         $elevator = $this->input->post('elevator');
+        $bedrooms = $this->input->post('bedrooms');
+        $bathrooms = $this->input->post('bathrooms');
+        $area = $this->input->post('area');
         $over = $this->input->post('over');
         $paid_amount = $this->input->post('paid_amount');
         $remaining_balance = $this->input->post('remaining_balance');
@@ -99,6 +111,6 @@ class Landing extends CI_Controller {
         $quarter_payment = $this->input->post('quarter_payment');
 
         echo json_encode($this->Marker_model->loadMarker($username, $type, $phase, $subphase, $building, $apt, $floor, 
-        $elevator, $over, $paid_amount, $remaining_balance, $remaining_years, $total_price, $quarter_payment));
+        $elevator, $bedrooms, $bathrooms, $area, $over, $paid_amount, $remaining_balance, $remaining_years, $total_price, $quarter_payment));
     }
 }

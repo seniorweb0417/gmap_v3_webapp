@@ -6,7 +6,7 @@ class Marker_model extends CI_Model {
     public $date;
 
     public function saveMarker($username, $type, $lat, $lng, $phase, $subphase, $building, $apt, $floor, 
-        $elevator, $over, $paid_amount, $remaining_balance, $remaining_years, $total_price, $quarter_payment, $notes) {
+        $elevator, $bedrooms, $bathrooms, $area, $over, $paid_amount, $remaining_balance, $remaining_years, $total_price, $quarter_payment, $notes) {
         $data = array(
             'username' => $username,
             'type' => $type,
@@ -18,6 +18,9 @@ class Marker_model extends CI_Model {
             'apt' => $apt,
             'floor' => $floor,
             'elevator' => $elevator,
+            'bedrooms' => $bedrooms,
+            'bathrooms' => $bathrooms,
+            'area' => $area,
             'over_str' => $over,
             'paid_amount' => $paid_amount,
             'remaining_balance' => $remaining_balance,
@@ -31,7 +34,7 @@ class Marker_model extends CI_Model {
     }
 
     public function loadMarker($username, $type, $phase, $subphase, $building, $apt, $floor, 
-        $elevator, $over, $paid_amount, $remaining_balance, $remaining_years, $total_price, $quarter_payment) {
+        $elevator, $bedrooms, $bathrooms, $area, $over, $paid_amount, $remaining_balance, $remaining_years, $total_price, $quarter_payment) {
         $ret = array();
         
         if ($username != '') $this->db->like('username', $username);
@@ -42,6 +45,9 @@ class Marker_model extends CI_Model {
         if ($apt != '') $this->db->like('apt', $apt);
         if ($floor != '') $this->db->like('floor', $floor);
         if ($elevator != '') $this->db->like('elevator', $elevator);
+        if ($bedrooms != '') $this->db->like('bedrooms', $bedrooms);
+        if ($bathrooms != '') $this->db->like('bathrooms', $bathrooms);
+        if ($area != '') $this->db->like('area', $area);
         if ($over != '') $this->db->like('over_str', $over);
         if ($paid_amount != '') $this->db->like('paid_amount', $paid_amount);
         if ($remaining_balance != '') $this->db->like('remaining_balance', $remaining_balance);

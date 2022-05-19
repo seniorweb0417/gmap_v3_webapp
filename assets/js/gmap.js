@@ -31,6 +31,9 @@ function initialize() {
             apt: $('#f_apt').val(),
             floor: $('#f_floor').val(),
             elevator: $('#f_elevator').val(),
+            bedrooms: $('#f_bedrooms').val(),
+            bathrooms: $('#f_bathrooms').val(),
+            area: $('#f_area').val(),
             over: $('#f_over').val(),
             paid_amount: $('#f_paid_amount').val(),
             remaining_balance: $('#f_remaining_balance').val(),
@@ -55,6 +58,9 @@ function initialize() {
                     apt: res[i]['apt'],
                     floor: res[i]['floor'],
                     elevator: res[i]['elevator'],
+                    bedrooms: res[i]['bedrooms'],
+                    bathrooms: res[i]['bathrooms'],
+                    area: res[i]['area'],
                     over: res[i]['over_str'],
                     paid_amount: res[i]['paid_amount'],
                     remaining_balance: res[i]['remaining_balance'],
@@ -77,6 +83,9 @@ function initialize() {
                 content += '<div>Apt: ' + res[i]['apt'] + '</div>';
                 content += '<div>Floor: ' + res[i]['floor'] + '</div>';
                 content += '<div>Elevator: ' + res[i]['elevator'] + '</div>';
+                content += '<div>Bedrooms: ' + res[i]['bedrooms'] + '</div>';
+                content += '<div>Bathrooms: ' + res[i]['bathrooms'] + '</div>';
+                content += '<div>Area: ' + res[i]['area'] + '</div>';
                 content += '<div>Over: ' + res[i]['over_str'] + '</div>';
                 content += '<div>Paid amount: ' + res[i]['paid_amount'] + '</div>';
                 content += '<div>Remaining balance: ' + res[i]['remaining_balance'] + '</div>';
@@ -124,6 +133,9 @@ function showmodal(lat, lng) {
     $('#apt').val('');
     $('#floor').val('');
     $('#elevator').val('');
+    $('#bedrooms').val('');
+    $('#bathrooms').val('');
+    $('#area').val('');
     $('#over').val('');
     $('#paid_amount').val('');
     $('#remaining_balance').val('');
@@ -149,6 +161,9 @@ function saveMarker() {
         apt: $('#apt').val(),
         floor: $('#floor').val(),
         elevator: $('#elevator').val(),
+        bedrooms: $('#bedrooms').val(),
+        bathrooms: $('#bathrooms').val(),
+        area: $('#area').val(),
         over: $('#over').val(),
         paid_amount: $('#paid_amount').val(),
         remaining_balance: $('#remaining_balance').val(),
@@ -172,6 +187,9 @@ function saveMarker() {
             apt: $('#apt').val(),
             floor: $('#floor').val(),
             elevator: $('#elevator').val(),
+            bedrooms: $('#bedrooms').val(),
+            bathrooms: $('#bathrooms').val(),
+            area: $('#area').val(),
             over: $('#over').val(),
             paid_amount: $('#paid_amount').val(),
             remaining_balance: $('#remaining_balance').val(),
@@ -194,6 +212,9 @@ function saveMarker() {
             content += '<div>Apt: ' + $('#apt').val() + '</div>';
             content += '<div>Floor: ' + $('#floor').val() + '</div>';
             content += '<div>Elevator: ' + $('#elevator').val() + '</div>';
+            content += '<div>Bedrooms: ' + $('#bedrooms').val() + '</div>';
+            content += '<div>Bathrooms: ' + $('#bathrooms').val() + '</div>';
+            content += '<div>Area: ' + $('#area').val() + '</div>';
             content += '<div>Over: ' + $('#over').val() + '</div>';
             content += '<div>Paid amount: ' + $('#paid_amount').val() + '</div>';
             content += '<div>Remaining balance: ' + $('#remaining_balance').val() + '</div>';
