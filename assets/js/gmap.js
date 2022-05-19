@@ -15,7 +15,7 @@ function initialize() {
     google.maps.event.addListener(map, 'click', function(event) {
     //   document.getElementById("lat").value = event.latLng.lat();
     //   document.getElementById("long").value = event.latLng.lng();
-
+      hideMarkers();
       showmodal(event.latLng.lat(), event.latLng.lng());
     });
 
@@ -34,7 +34,9 @@ function initialize() {
             over: $('#f_over').val(),
             paid_amount: $('#f_paid_amount').val(),
             remaining_balance: $('#f_remaining_balance').val(),
-            remaining_years: $('#f_remaining_years').val()
+            remaining_years: $('#f_remaining_years').val(),
+            total_price: $('#f_total_price').val(),
+            quarter_payment: $('#f_quarter_payment').val(),
         },
         success: function(result) {
             var res = JSON.parse(result);
@@ -57,6 +59,8 @@ function initialize() {
                     paid_amount: res[i]['paid_amount'],
                     remaining_balance: res[i]['remaining_balance'],
                     remaining_years: res[i]['remaining_years'],
+                    total_price: res[i]['total_price'],
+                    quarter_payment: res[i]['quarter_payment'],
                     notes: res[i]['notes']
                 });
 
@@ -77,16 +81,10 @@ function initialize() {
                 content += '<div>Paid amount: ' + res[i]['paid_amount'] + '</div>';
                 content += '<div>Remaining balance: ' + res[i]['remaining_balance'] + '</div>';
                 content += '<div>Remaining years: ' + res[i]['remaining_years'] + '</div>';
+                content += '<div>Total price: ' + $('#total_price').val() + '</div>';
+                content += '<div>Quarter payment: ' + $('#quarter_payment').val() + '</div>';
                 content += '<div>Notes: ' + res[i]['notes'] + '</div>';
 
-                // var infowindow = new google.maps.InfoWindow();
-    
-                // google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
-                //     return function() {
-                //         infowindow.setContent(content);
-                //         infowindow.open(map, marker);
-                //     }
-                // })(marker, content, infowindow));
                 placeInfoWindow(marker, content);
             }
 
@@ -99,15 +97,19 @@ function placeInfoWindow(marker, content) {
     
     google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
         return function() {
-            for (var i = 0; i < infos.length; i++) {
-                infos[i].close();
-            }
+            hideMarkers();
 
             infowindow.setContent(content);
             infowindow.open(map, marker);
             infos.push(infowindow);
         }
     })(marker, content, infowindow));
+}
+
+function hideMarkers() {
+    for (var i = 0; i < infos.length; i++) {
+        infos[i].close();
+    }
 }
 
 function showmodal(lat, lng) {
@@ -151,6 +153,8 @@ function saveMarker() {
         paid_amount: $('#paid_amount').val(),
         remaining_balance: $('#remaining_balance').val(),
         remaining_years: $('#remaining_years').val(),
+        total_price: $('#total_price').val(),
+        quarter_payment: $('#quarter_payment').val(),
         notes: $('#notes').val()
     });
 
@@ -172,6 +176,8 @@ function saveMarker() {
             paid_amount: $('#paid_amount').val(),
             remaining_balance: $('#remaining_balance').val(),
             remaining_years: $('#remaining_years').val(),
+            total_price: $('#total_price').val(),
+            quarter_payment: $('#quarter_payment').val(),
             notes: $('#notes').val()
         },
         success: function(result) {
@@ -192,6 +198,8 @@ function saveMarker() {
             content += '<div>Paid amount: ' + $('#paid_amount').val() + '</div>';
             content += '<div>Remaining balance: ' + $('#remaining_balance').val() + '</div>';
             content += '<div>Remaining years: ' + $('#remaining_years').val() + '</div>';
+            content += '<div>Total price: ' + $('#total_price').val() + '</div>';
+            content += '<div>Quarter payment: ' + $('#quarter_payment').val() + '</div>';
             content += '<div>Notes: ' + $('#notes').val() + '</div>';
 
             placeInfoWindow(marker, content);

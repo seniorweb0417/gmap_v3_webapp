@@ -6,7 +6,7 @@ class Marker_model extends CI_Model {
     public $date;
 
     public function saveMarker($username, $type, $lat, $lng, $phase, $subphase, $building, $apt, $floor, 
-        $elevator, $over, $paid_amount, $remaining_balance, $remaining_years, $notes) {
+        $elevator, $over, $paid_amount, $remaining_balance, $remaining_years, $total_price, $quarter_payment, $notes) {
         $data = array(
             'username' => $username,
             'type' => $type,
@@ -22,6 +22,8 @@ class Marker_model extends CI_Model {
             'paid_amount' => $paid_amount,
             'remaining_balance' => $remaining_balance,
             'remaining_years' => $remaining_years,
+            'total_price' => $total_price, 
+            'quarter_payment' => $quarter_payment,
             'notes' => $notes
         );
         
@@ -29,7 +31,7 @@ class Marker_model extends CI_Model {
     }
 
     public function loadMarker($username, $type, $phase, $subphase, $building, $apt, $floor, 
-        $elevator, $over, $paid_amount, $remaining_balance, $remaining_years) {
+        $elevator, $over, $paid_amount, $remaining_balance, $remaining_years, $total_price, $quarter_payment) {
         $ret = array();
         
         if ($username != '') $this->db->like('username', $username);
@@ -44,6 +46,8 @@ class Marker_model extends CI_Model {
         if ($paid_amount != '') $this->db->like('paid_amount', $paid_amount);
         if ($remaining_balance != '') $this->db->like('remaining_balance', $remaining_balance);
         if ($remaining_years != '') $this->db->like('remaining_years', $remaining_years);
+        if ($total_price != '') $this->db->like('total_price', $total_price);
+        if ($quarter_payment != '') $this->db->like('quarter_payment', $quarter_payment);
 
         $query = $this->db->get($this->tbl);
         foreach ($query->result_array() as $row) {

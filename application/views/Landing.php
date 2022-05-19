@@ -98,6 +98,14 @@
                         <option value="Five" <?php echo ($f_remaining_years == 'Five') ? 'selected' : '' ?>>Five</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="f_remaining_balance">Total price:</label>
+                    <input type="text" class="form-control" id="f_total_price" name="f_total_price" value="<?php echo $f_total_price; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="f_remaining_balance">Quarter payment:</label>
+                    <input type="text" class="form-control" id="f_quarter_payment" name="f_quarter_payment" value="<?php echo $f_quarter_payment; ?>">
+                </div>
                 <button type="submit" class="btn btn-primary">Filter</button>
                 <button type="button" class="btn btn-default" onClick="showAll();">View All</button>
             </form>
@@ -114,115 +122,144 @@
                             <input type="hidden" id="coor_lat" value="">
                             <input type="hidden" id="coor_lng" value="">
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="usrname"> Username</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="usrname">
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="usrname"> Username</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="usrname">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="type"> Type</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="type">
+                                            <option value=""></option>
+                                            <option value="Rent">Rent</option>
+                                            <option value="Sale">Sale</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="type"> Type</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control" id="type">
-                                        <option value=""></option>
-                                        <option value="Rent">Rent</option>
-                                        <option value="Sale">Sale</option>
-                                    </select>
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="phase"> Phase</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="phase">
+                                            <option value=""></option>
+                                            <option value="One">One</option>
+                                            <option value="Two">Two</option>
+                                            <option value="Three">Three</option>
+                                            <option value="Four">Four</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="subphase"> Subphase</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="subphase">
+                                            <option value=""></option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="phase"> Phase</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control" id="phase">
-                                        <option value=""></option>
-                                        <option value="One">One</option>
-                                        <option value="Two">Two</option>
-                                        <option value="Three">Three</option>
-                                        <option value="Four">Four</option>
-                                    </select>
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="building"> Building</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="building">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="apt"> Apt</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="apt">
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="subphase"> Subphase</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control" id="subphase">
-                                        <option value=""></option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
-                                        <option value="D">D</option>
-                                        <option value="E">E</option>
-                                    </select>
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="floor"> Floor</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="floor">
+                                            <option value=""></option>
+                                            <option value="One">One</option>
+                                            <option value="Two">Two</option>
+                                            <option value="Three">Three</option>
+                                            <option value="Four">Four</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="elevator"> Elevator</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="elevator">
+                                            <option value=""></option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="over"> Over</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="over">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="paid_amount"> Paid amount</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="paid_amount">
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="building"> Building</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="building">
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="remaining_balance"> Remaining balance</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="remaining_balance">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="remaining_years"> Remaining years</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="remaining_years">
+                                            <option value=""></option>
+                                            <option value="One">One</option>
+                                            <option value="Two">Two</option>
+                                            <option value="Three">Three</option>
+                                            <option value="Four">Four</option>
+                                            <option value="Five">Five</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="apt"> Apt</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="apt">
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="total_price"> Total price</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="total_price">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="control-label col-sm-4" for="quarter_payment"> Quarter payment</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="quarter_payment">
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="floor"> Floor</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control" id="floor">
-                                        <option value=""></option>
-                                        <option value="One">One</option>
-                                        <option value="Two">Two</option>
-                                        <option value="Three">Three</option>
-                                        <option value="Four">Four</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-3" for="elevator"> Elevator</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control" id="elevator">
-                                        <option value=""></option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-3" for="over"> Over</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="over">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-3" for="paid_amount"> Paid amount</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="paid_amount">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-3" for="remaining_balance"> Remaining balance</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="remaining_balance">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-3" for="remaining_years"> Remaining years</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control" id="remaining_years">
-                                        <option value=""></option>
-                                        <option value="One">One</option>
-                                        <option value="Two">Two</option>
-                                        <option value="Three">Three</option>
-                                        <option value="Four">Four</option>
-                                        <option value="Five">Five</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-3" for="notes"> Notes</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="notes">
+                                <div class="col-sm-12">
+                                    <label class="control-label col-sm-2" for="notes"> Notes</label>
+                                    <div class="col-sm-10">
+                                        <textarea type="text" class="form-control" id="notes"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </form>
