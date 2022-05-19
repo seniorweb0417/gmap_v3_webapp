@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Google Map Webapp</title>
+        <title>NoSemsar</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -12,6 +12,7 @@
     </head>
     <body>
         <div class="container">
+            <h1 class="text-center">NoSemsar</h1>
             <div id="map_canvas"></div>
         </div>
         <div class="modal fade" id="info_modal" role="dialog">
@@ -23,6 +24,8 @@
                     </div>
                     <div class="modal-body">
                         <form role="form" class="form-horizontal">
+                            <input type="hidden" id="coor_lat" value="">
+                            <input type="hidden" id="coor_lng" value="">
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="usrname"> Username</label>
                                 <div class="col-sm-9">
@@ -110,7 +113,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-primary" onClick="saveMarker();">Save</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -118,10 +121,4 @@
         </div>
     </body>
     <script src="<?php echo base_url() ?>assets/js/gmap.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#info_modal').modal();
-        });
-
-    </script>
 </html>
