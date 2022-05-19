@@ -81,8 +81,8 @@ function initialize() {
                 content += '<div>Paid amount: ' + res[i]['paid_amount'] + '</div>';
                 content += '<div>Remaining balance: ' + res[i]['remaining_balance'] + '</div>';
                 content += '<div>Remaining years: ' + res[i]['remaining_years'] + '</div>';
-                content += '<div>Total price: ' + $('#total_price').val() + '</div>';
-                content += '<div>Quarter payment: ' + $('#quarter_payment').val() + '</div>';
+                content += '<div>Total price: ' + res[i]['total_price'] + '</div>';
+                content += '<div>Quarter payment: ' + res[i]['quarter_payment'] + '</div>';
                 content += '<div>Notes: ' + res[i]['notes'] + '</div>';
 
                 placeInfoWindow(marker, content);
