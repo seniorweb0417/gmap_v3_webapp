@@ -23,7 +23,35 @@ class Landing extends CI_Controller {
     }
 
 	public function index() {
-		$this->load->view('Landing');
+        $f_usrname = $this->input->get('f_usrname');
+        $f_type = $this->input->get('f_type');
+        $f_phase = $this->input->get('f_phase');
+        $f_subphase = $this->input->get('f_subphase');
+        $f_building = $this->input->get('f_building');
+        $f_apt = $this->input->get('f_apt');
+        $f_floor = $this->input->get('f_floor');
+        $f_elevator = $this->input->get('f_elevator');
+        $f_over = $this->input->get('f_over');
+        $f_paid_amount = $this->input->get('f_paid_amount');
+        $f_remaining_balance = $this->input->get('f_remaining_balance');
+        $f_remaining_years = $this->input->get('f_remaining_years');
+
+        $data = array(
+            'f_usrname' => $f_usrname,
+            'f_type' => $f_type,
+            'f_phase' => $f_phase,
+            'f_subphase' => $f_subphase,
+            'f_building' => $f_building,
+            'f_apt' => $f_apt,
+            'f_floor' => $f_floor,
+            'f_elevator' => $f_elevator,
+            'f_over' => $f_over,
+            'f_paid_amount' => $f_paid_amount,
+            'f_remaining_balance' => $f_remaining_balance,
+            'f_remaining_years' => $f_remaining_years
+            );
+
+		$this->load->view('Landing', $data);
 	}
 
     public function saveMarker() {
@@ -48,6 +76,20 @@ class Landing extends CI_Controller {
     }
 
     public function loadMarker() {
-        echo json_encode($this->Marker_model->loadMarker());
+        $username = $this->input->post('username');
+        $type = $this->input->post('type');
+        $phase = $this->input->post('phase');
+        $subphase = $this->input->post('subphase');
+        $building = $this->input->post('building');
+        $apt = $this->input->post('apt');
+        $floor = $this->input->post('floor');
+        $elevator = $this->input->post('elevator');
+        $over = $this->input->post('over');
+        $paid_amount = $this->input->post('paid_amount');
+        $remaining_balance = $this->input->post('remaining_balance');
+        $remaining_years = $this->input->post('remaining_years');
+
+        echo json_encode($this->Marker_model->loadMarker($username, $type, $phase, $subphase, $building, $apt, $floor, 
+        $elevator, $over, $paid_amount, $remaining_balance, $remaining_years));
     }
 }

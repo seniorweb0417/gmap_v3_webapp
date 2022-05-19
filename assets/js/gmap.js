@@ -21,7 +21,20 @@ function initialize() {
     $.ajax({
         url: $('#base_url').val() + 'index.php/Landing/loadMarker',
         method: 'POST',
-        data: {},
+        data: {
+            username: $('#f_usrname').val(),
+            type: $('#f_type').val(),
+            phase: $('#f_phase').val(),
+            subphase: $('#f_subphase').val(),
+            building: $('#f_building').val(),
+            apt: $('#f_apt').val(),
+            floor: $('#f_floor').val(),
+            elevator: $('#f_elevator').val(),
+            over: $('#f_over').val(),
+            paid_amount: $('#f_paid_amount').val(),
+            remaining_balance: $('#f_remaining_balance').val(),
+            remaining_years: $('#f_remaining_years').val()
+        },
         success: function(result) {
             var res = JSON.parse(result);
             for (var i = 0; i < res.length; i ++) {
@@ -178,6 +191,10 @@ function saveMarker() {
             placeInfoWindow(marker, content);
         }
     });
+}
+
+function showAll() {
+    document.location.href = $('#base_url').val();
 }
 
 google.maps.event.addDomListener(window, "load", initialize());

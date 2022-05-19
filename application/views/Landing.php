@@ -15,6 +15,58 @@
             <h1 class="text-center">NoSemsar</h1>
             <div id="map_canvas"></div>
             <input type="hidden" id="base_url" value="<?php echo base_url(); ?>">
+            <form role="form" class="form-inline" action="" method="get">
+                <div class="form-group">
+                    <label for="f_usrname">Added by:</label>
+                    <input type="text" class="form-control" id="f_usrname" name="f_usrname" value="<?php echo $f_usrname; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="f_type">Type:</label>
+                    <input type="text" class="form-control" id="f_type" name="f_type" value="<?php echo $f_type; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="f_phase">Phase:</label>
+                    <input type="text" class="form-control" id="f_phase" name="f_phase" value="<?php echo $f_phase; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="f_subphase">Subphase:</label>
+                    <input type="text" class="form-control" id="f_subphase" name="f_subphase" value="<?php echo $f_subphase; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="f_building">Building:</label>
+                    <input type="text" class="form-control" id="f_building" name="f_building" value="<?php echo $f_building; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="f_apt">Apt:</label>
+                    <input type="text" class="form-control" id="f_apt" name="f_apt" value="<?php echo $f_apt; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="f_floor">Floor:</label>
+                    <input type="text" class="form-control" id="f_floor" name="f_floor" value="<?php echo $f_floor; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="f_elevator">Elevator:</label>
+                    <input type="text" class="form-control" id="f_elevator" name="f_elevator" value="<?php echo $f_elevator; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="f_over">Over:</label>
+                    <input type="text" class="form-control" id="f_over" name="f_over" value="<?php echo $f_over; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="f_paid_amount">Paid amount:</label>
+                    <input type="text" class="form-control" id="f_paid_amount" name="f_paid_amount" value="<?php echo $f_paid_amount; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="f_remaining_balance">Remaining balance:</label>
+                    <input type="text" class="form-control" id="f_remaining_balance" name="f_remaining_balance" value="<?php echo $f_remaining_balance; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="f_remaining_years">Remaining years:</label>
+                    <input type="text" class="form-control" id="f_remaining_years" name="f_remaining_years" value="<?php echo $f_remaining_years; ?>">
+                </div>
+                <button type="submit" class="btn btn-primary">Filter</button>
+                <button type="button" class="btn btn-default" onClick="showAll();">View All</button>
+            </form>
         </div>
         <div class="modal fade" id="info_modal" role="dialog">
             <div class="modal-dialog">
