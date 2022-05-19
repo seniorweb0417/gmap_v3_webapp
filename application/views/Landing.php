@@ -77,19 +77,19 @@
                 </div>
                 <div class="form-group">
                     <label for="f_over">Over:</label>
-                    <input type="text" class="form-control" id="f_over" name="f_over" value="<?php echo $f_over; ?>">
+                    <input type="text" class="form-control width-fix-70" id="f_over" name="f_over" value="<?php echo $f_over; ?>">
                 </div>
                 <div class="form-group">
                     <label for="f_paid_amount">Paid amount:</label>
-                    <input type="text" class="form-control" id="f_paid_amount" name="f_paid_amount" value="<?php echo $f_paid_amount; ?>">
+                    <input type="text" class="form-control width-fix-70" id="f_paid_amount" name="f_paid_amount" value="<?php echo $f_paid_amount; ?>">
                 </div>
                 <div class="form-group">
                     <label for="f_remaining_balance">Remaining balance:</label>
-                    <input type="text" class="form-control" id="f_remaining_balance" name="f_remaining_balance" value="<?php echo $f_remaining_balance; ?>">
+                    <input type="text" class="form-control width-fix-70" id="f_remaining_balance" name="f_remaining_balance" value="<?php echo $f_remaining_balance; ?>">
                 </div>
                 <div class="form-group">
                     <label for="f_remaining_years">Remaining years:</label>
-                    <select class="form-control" id="f_remaining_years" name="f_remaining_years">
+                    <select class="form-control width-fix-70" id="f_remaining_years" name="f_remaining_years">
                         <option value=""></option>
                         <option value="One" <?php echo ($f_remaining_years == 'One') ? 'selected' : '' ?>>One</option>
                         <option value="Two" <?php echo ($f_remaining_years == 'Two') ? 'selected' : '' ?>>Two</option>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="form-group">
                     <label for="f_remaining_balance">Total price:</label>
-                    <input type="text" class="form-control" id="f_total_price" name="f_total_price" value="<?php echo $f_total_price; ?>">
+                    <input type="text" class="form-control width-fix-70" id="f_total_price" name="f_total_price" value="<?php echo $f_total_price; ?>">
                 </div>
                 <div class="form-group">
                     <label for="f_remaining_balance">Quarter payment:</label>

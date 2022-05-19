@@ -16,3 +16,7 @@ form.form-inline .form-group {
 form.form-inline button {
     margin-top: -15px;
 }
+
+.width-fix-70 {
+    width: 70px !important;
+}
