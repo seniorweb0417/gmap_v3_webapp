@@ -48,11 +48,11 @@ class Marker_model extends CI_Model {
         if ($bedrooms != '') $this->db->like('bedrooms', $bedrooms);
         if ($bathrooms != '') $this->db->like('bathrooms', $bathrooms);
         if ($area != '') $this->db->like('area', $area);
-        if ($over != '') $this->db->like('over_str', $over);
-        if ($paid_amount != '') $this->db->like('paid_amount', $paid_amount);
-        if ($remaining_balance != '') $this->db->like('remaining_balance', $remaining_balance);
-        if ($remaining_years != '') $this->db->like('remaining_years', $remaining_years);
-        if ($total_price != '') $this->db->like('total_price', $total_price);
+        if ($over != '') $this->db->where('over_str <=', $over);
+        if ($paid_amount != '') $this->db->where('paid_amount <=', $paid_amount);
+        if ($remaining_balance != '') $this->db->where('remaining_balance <=', $remaining_balance);
+        if ($remaining_years != '') $this->db->where('remaining_years <=', $remaining_years);
+        if ($total_price != '') $this->db->where('total_price <=', $total_price);
         if ($quarter_payment != '') $this->db->like('quarter_payment', $quarter_payment);
 
         $query = $this->db->get($this->tbl);
