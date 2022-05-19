@@ -25,7 +25,6 @@ function initialize() {
         success: function(result) {
             var res = JSON.parse(result);
             for (var i = 0; i < res.length; i ++) {
-                console.log(res[i]);
                 var latlng = new google.maps.LatLng(res[i]['lat'], res[i]['lng']);
                 var marker = new google.maps.Marker({
                     draggable: false,
@@ -49,9 +48,47 @@ function initialize() {
 
                 marker.setPosition(latlng);
                 markers.push(marker);
+
+                // show info window
+                var content = '';
+                content += '<div>Username: ' + res[i]['username'] + '</div>';
+                content += '<div>Type: ' + res[i]['type'] + '</div>';
+                content += '<div>Phase: ' + res[i]['phase'] + '</div>';
+                content += '<div>Subphase: ' + res[i]['subphase'] + '</div>';
+                content += '<div>Building: ' + res[i]['building'] + '</div>';
+                content += '<div>Apt: ' + res[i]['apt'] + '</div>';
+                content += '<div>Floor: ' + res[i]['floor'] + '</div>';
+                content += '<div>Elevator: ' + res[i]['elevator'] + '</div>';
+                content += '<div>Over: ' + res[i]['over_str'] + '</div>';
+                content += '<div>Paid amount: ' + res[i]['paid_amount'] + '</div>';
+                content += '<div>Remaining balance: ' + res[i]['remaining_balance'] + '</div>';
+                content += '<div>Remaining years: ' + res[i]['remaining_years'] + '</div>';
+                content += '<div>Notes: ' + res[i]['notes'] + '</div>';
+
+                // var infowindow = new google.maps.InfoWindow();
+    
+                // google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
+                //     return function() {
+                //         infowindow.setContent(content);
+                //         infowindow.open(map, marker);
+                //     }
+                // })(marker, content, infowindow));
+                placeInfoWindow(marker, content);
             }
+
         }
     });
+}
+
+function placeInfoWindow(marker, content) {
+    var infowindow = new google.maps.InfoWindow();
+    
+    google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
+        return function() {
+            infowindow.setContent(content);
+            infowindow.open(map, marker);
+        }
+    })(marker, content, infowindow));
 }
 
 function showmodal(lat, lng) {
@@ -119,11 +156,26 @@ function saveMarker() {
             notes: $('#notes').val()
         },
         success: function(result) {
-            console.log(result);
             marker.setPosition(latlng);
             markers.push(marker);
-            console.log(markers);
             $('#info_modal').modal('hide');
+
+            var content = '';
+            content += '<div>Username: ' + $('#usrname').val() + '</div>';
+            content += '<div>Type: ' + $('#type').val() + '</div>';
+            content += '<div>Phase: ' + $('#phase').val() + '</div>';
+            content += '<div>Subphase: ' + $('#subphase').val() + '</div>';
+            content += '<div>Building: ' + $('#building').val() + '</div>';
+            content += '<div>Apt: ' + $('#apt').val() + '</div>';
+            content += '<div>Floor: ' + $('#floor').val() + '</div>';
+            content += '<div>Elevator: ' + $('#elevator').val() + '</div>';
+            content += '<div>Over: ' + $('#over').val() + '</div>';
+            content += '<div>Paid amount: ' + $('#paid_amount').val() + '</div>';
+            content += '<div>Remaining balance: ' + $('#remaining_balance').val() + '</div>';
+            content += '<div>Remaining years: ' + $('#remaining_years').val() + '</div>';
+            content += '<div>Notes: ' + $('#notes').val() + '</div>';
+
+            placeInfoWindow(marker, content);
         }
     });
 }
