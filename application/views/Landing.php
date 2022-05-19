@@ -40,12 +40,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="coor"> Coordinates</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="coor">
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="control-label col-sm-3" for="phase"> Phase</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="phase">

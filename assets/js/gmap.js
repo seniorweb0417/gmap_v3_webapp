@@ -17,6 +17,41 @@ function initialize() {
 
       showmodal(event.latLng.lat(), event.latLng.lng());
     });
+
+    $.ajax({
+        url: $('#base_url').val() + 'index.php/Landing/loadMarker',
+        method: 'POST',
+        data: {},
+        success: function(result) {
+            var res = JSON.parse(result);
+            for (var i = 0; i < res.length; i ++) {
+                console.log(res[i]);
+                var latlng = new google.maps.LatLng(res[i]['lat'], res[i]['lng']);
+                var marker = new google.maps.Marker({
+                    draggable: false,
+                    position: latlng,
+                    map: map,
+                    title: res[i]['username'],
+                    usrname: res[i]['username'],
+                    type: res[i]['type'],
+                    phase: res[i]['phase'],
+                    subphase: res[i]['subphase'],
+                    building: res[i]['building'],
+                    apt: res[i]['apt'],
+                    floor: res[i]['floor'],
+                    elevator: res[i]['elevator'],
+                    over: res[i]['over_str'],
+                    paid_amount: res[i]['paid_amount'],
+                    remaining_balance: res[i]['remaining_balance'],
+                    remaining_years: res[i]['remaining_years'],
+                    notes: res[i]['notes']
+                });
+
+                marker.setPosition(latlng);
+                markers.push(marker);
+            }
+        }
+    });
 }
 
 function showmodal(lat, lng) {
@@ -25,7 +60,6 @@ function showmodal(lat, lng) {
 
     $('#usrname').val('');
     $('#type').val('');
-    $('#coor').val('');
     $('#phase').val('');
     $('#subphase').val('');
     $('#building').val('');
@@ -51,7 +85,6 @@ function saveMarker() {
         title: $('#usrname').val(),
         usrname: $('#usrname').val(),
         type: $('#type').val(),
-        coor: $('#coor').val(),
         phase: $('#phase').val(),
         subphase: $('#subphase').val(),
         building: $('#building').val(),
@@ -66,7 +99,7 @@ function saveMarker() {
     });
 
     $.ajax({
-        url: $('#base_url').val() + '/landing/saveMaker',
+        url: $('#base_url').val() + 'index.php/Landing/saveMarker',
         method: 'POST',
         data: {
             username: $('#usrname').val(),

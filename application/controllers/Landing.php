@@ -17,13 +17,16 @@ class Landing extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
+    function __construct() {
+        parent::__construct();
+        $this->load->model('Marker_model');
+    }
+
 	public function index() {
 		$this->load->view('Landing');
 	}
 
-    public function saveMaker() {
-        $this->load->model('Marker_model');
-
+    public function saveMarker() {
         $username = $this->input->post('username');
         $type = $this->input->post('type');
         $lat = $this->input->post('lat');
@@ -40,7 +43,11 @@ class Landing extends CI_Controller {
         $remaining_years = $this->input->post('remaining_years');
         $notes = $this->input->post('notes');
 
-        echo $this->marker_model->saveMarker($username, $type, $lat, $lng, $phase, $subphase, $building, $apt, $floor, 
+        echo $this->Marker_model->saveMarker($username, $type, $lat, $lng, $phase, $subphase, $building, $apt, $floor, 
         $elevator, $over, $paid_amount, $remaining_balance, $remaining_years, $notes);
+    }
+
+    public function loadMarker() {
+        echo json_encode($this->Marker_model->loadMarker());
     }
 }

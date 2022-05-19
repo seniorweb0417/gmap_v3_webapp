@@ -28,4 +28,13 @@ class Marker_model extends CI_Model {
         return $this->db->insert($this->tbl, $data);
     }
 
+    public function loadMarker() {
+        $ret = array();
+        $query = $this->db->get($this->tbl);
+        foreach ($query->result_array() as $row) {
+            $ret[] = $row;
+        }
+
+        return $ret;
+    }
 }
