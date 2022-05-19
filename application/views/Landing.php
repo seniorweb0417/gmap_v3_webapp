@@ -22,15 +22,32 @@
                 </div>
                 <div class="form-group">
                     <label for="f_type">Type:</label>
-                    <input type="text" class="form-control" id="f_type" name="f_type" value="<?php echo $f_type; ?>">
+                    <select class="form-control" id="f_type" name="f_type">
+                        <option value=""></option>
+                        <option value="Rent" <?php echo ($f_type == 'Rent') ? 'selected' : '' ?>>Rent</option>
+                        <option value="Sale" <?php echo ($f_type == 'Sale') ? 'selected' : '' ?>>Sale</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="f_phase">Phase:</label>
-                    <input type="text" class="form-control" id="f_phase" name="f_phase" value="<?php echo $f_phase; ?>">
+                    <select class="form-control" id="f_phase" name="f_phase">
+                        <option value=""></option>
+                        <option value="One" <?php echo ($f_phase == 'One') ? 'selected' : '' ?>>One</option>
+                        <option value="Two" <?php echo ($f_phase == 'Two') ? 'selected' : '' ?>>Two</option>
+                        <option value="Three" <?php echo ($f_phase == 'Three') ? 'selected' : '' ?>>Three</option>
+                        <option value="Four" <?php echo ($f_phase == 'Four') ? 'selected' : '' ?>>Four</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="f_subphase">Subphase:</label>
-                    <input type="text" class="form-control" id="f_subphase" name="f_subphase" value="<?php echo $f_subphase; ?>">
+                    <select class="form-control" id="f_subphase" name="f_subphase">
+                        <option value=""></option>
+                        <option value="A" <?php echo ($f_subphase == 'A') ? 'selected' : '' ?>>A</option>
+                        <option value="B" <?php echo ($f_subphase == 'B') ? 'selected' : '' ?>>B</option>
+                        <option value="C" <?php echo ($f_subphase == 'C') ? 'selected' : '' ?>>C</option>
+                        <option value="D" <?php echo ($f_subphase == 'D') ? 'selected' : '' ?>>D</option>
+                        <option value="E" <?php echo ($f_subphase == 'E') ? 'selected' : '' ?>>E</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="f_building">Building:</label>
@@ -42,11 +59,21 @@
                 </div>
                 <div class="form-group">
                     <label for="f_floor">Floor:</label>
-                    <input type="text" class="form-control" id="f_floor" name="f_floor" value="<?php echo $f_floor; ?>">
+                    <select class="form-control" id="f_floor" name="f_floor">
+                        <option value=""></option>
+                        <option value="One" <?php echo ($f_floor == 'One') ? 'selected' : '' ?>>One</option>
+                        <option value="Two" <?php echo ($f_floor == 'Two') ? 'selected' : '' ?>>Two</option>
+                        <option value="Three" <?php echo ($f_floor == 'Three') ? 'selected' : '' ?>>Three</option>
+                        <option value="Four" <?php echo ($f_floor == 'Four') ? 'selected' : '' ?>>Four</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="f_elevator">Elevator:</label>
-                    <input type="text" class="form-control" id="f_elevator" name="f_elevator" value="<?php echo $f_elevator; ?>">
+                    <select class="form-control" id="f_elevator" name="f_elevator">
+                        <option value=""></option>
+                        <option value="Yes" <?php echo ($f_elevator == 'Yes') ? 'selected' : '' ?>>Yes</option>
+                        <option value="No" <?php echo ($f_elevator == 'No') ? 'selected' : '' ?>>No</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="f_over">Over:</label>
@@ -62,7 +89,14 @@
                 </div>
                 <div class="form-group">
                     <label for="f_remaining_years">Remaining years:</label>
-                    <input type="text" class="form-control" id="f_remaining_years" name="f_remaining_years" value="<?php echo $f_remaining_years; ?>">
+                    <select class="form-control" id="f_remaining_years" name="f_remaining_years">
+                        <option value=""></option>
+                        <option value="One" <?php echo ($f_remaining_years == 'One') ? 'selected' : '' ?>>One</option>
+                        <option value="Two" <?php echo ($f_remaining_years == 'Two') ? 'selected' : '' ?>>Two</option>
+                        <option value="Three" <?php echo ($f_remaining_years == 'Three') ? 'selected' : '' ?>>Three</option>
+                        <option value="Four" <?php echo ($f_remaining_years == 'Four') ? 'selected' : '' ?>>Four</option>
+                        <option value="Five" <?php echo ($f_remaining_years == 'Five') ? 'selected' : '' ?>>Five</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Filter</button>
                 <button type="button" class="btn btn-default" onClick="showAll();">View All</button>
@@ -88,19 +122,36 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="type"> Type</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="type">
+                                    <select class="form-control" id="type">
+                                        <option value=""></option>
+                                        <option value="Rent">Rent</option>
+                                        <option value="Sale">Sale</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="phase"> Phase</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="phase">
+                                    <select class="form-control" id="phase">
+                                        <option value=""></option>
+                                        <option value="One">One</option>
+                                        <option value="Two">Two</option>
+                                        <option value="Three">Three</option>
+                                        <option value="Four">Four</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="subphase"> Subphase</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="subphase">
+                                    <select class="form-control" id="subphase">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -118,13 +169,23 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="floor"> Floor</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="floor">
+                                    <select class="form-control" id="floor">
+                                        <option value=""></option>
+                                        <option value="One">One</option>
+                                        <option value="Two">Two</option>
+                                        <option value="Three">Three</option>
+                                        <option value="Four">Four</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="elevator"> Elevator</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="elevator">
+                                    <select class="form-control" id="elevator">
+                                        <option value=""></option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -148,7 +209,14 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="remaining_years"> Remaining years</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="remaining_years">
+                                    <select class="form-control" id="remaining_years">
+                                        <option value=""></option>
+                                        <option value="One">One</option>
+                                        <option value="Two">Two</option>
+                                        <option value="Three">Three</option>
+                                        <option value="Four">Four</option>
+                                        <option value="Five">Five</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">

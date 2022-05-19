@@ -1,8 +1,9 @@
 var markers = [];
+var infos = [];
 var map;
 
 function initialize() {
-    var myLatlng = new google.maps.LatLng(40.713956, -74.006653);
+    var myLatlng = new google.maps.LatLng(30.030572852922617, 31.02115847241165);
   
     var myOptions = {
       zoom: 8,
@@ -98,8 +99,13 @@ function placeInfoWindow(marker, content) {
     
     google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
         return function() {
+            for (var i = 0; i < infos.length; i++) {
+                infos[i].close();
+            }
+
             infowindow.setContent(content);
             infowindow.open(map, marker);
+            infos.push(infowindow);
         }
     })(marker, content, infowindow));
 }
