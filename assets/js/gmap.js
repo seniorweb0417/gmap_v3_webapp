@@ -65,27 +65,34 @@ function saveMarker() {
         notes: $('#notes').val()
     });
 
-    // var meta = {
-    //     usrname: $('#usrname').val(''),
-    //     type: $('#type').val(''),
-    //     coor: $('#coor').val(''),
-    //     phase: $('#phase').val(''),
-    //     subphase: $('#subphase').val(''),
-    //     building: $('#building').val(''),
-    //     apt: $('#apt').val(''),
-    //     floor: $('#floor').val(''),
-    //     elevator: $('#elevator').val(''),
-    //     over: $('#over').val(''),
-    //     paid_amount: $('#paid_amount').val(''),
-    //     remaining_balance: $('#remaining_balance').val(''),
-    //     remaining_years: $('#remaining_years').val(''),
-    //     notes: $('#notes').val('')
-    // };
-
-    marker.setPosition(latlng);
-    markers.push(marker);
-    console.log(markers);
-    $('#info_modal').modal('hide');
+    $.ajax({
+        url: $('#base_url').val() + '/landing/saveMaker',
+        method: 'POST',
+        data: {
+            username: $('#usrname').val(),
+            type: $('#type').val(),
+            lat: $('#coor_lat').val(),
+            lng: $('#coor_lng').val(),
+            phase: $('#phase').val(),
+            subphase: $('#subphase').val(),
+            building: $('#building').val(),
+            apt: $('#apt').val(),
+            floor: $('#floor').val(),
+            elevator: $('#elevator').val(),
+            over: $('#over').val(),
+            paid_amount: $('#paid_amount').val(),
+            remaining_balance: $('#remaining_balance').val(),
+            remaining_years: $('#remaining_years').val(),
+            notes: $('#notes').val()
+        },
+        success: function(result) {
+            console.log(result);
+            marker.setPosition(latlng);
+            markers.push(marker);
+            console.log(markers);
+            $('#info_modal').modal('hide');
+        }
+    });
 }
 
 google.maps.event.addDomListener(window, "load", initialize());

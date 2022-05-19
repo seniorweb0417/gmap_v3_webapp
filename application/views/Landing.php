@@ -14,6 +14,7 @@
         <div class="container">
             <h1 class="text-center">NoSemsar</h1>
             <div id="map_canvas"></div>
+            <input type="hidden" id="base_url" value="<?php echo base_url(); ?>">
         </div>
         <div class="modal fade" id="info_modal" role="dialog">
             <div class="modal-dialog">
